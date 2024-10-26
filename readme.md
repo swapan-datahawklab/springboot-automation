@@ -1,6 +1,9 @@
 chmod +x create_project_structure.sh &&\
 bash ./create_project_structure.sh
 
+oc login --token=sha256~${TOKEN} --server=https://api.sandbox-m2.ll9k.p1.openshiftapps.com:6443
+curl -H "Authorization: Bearer sha256~${TOKEN}" "https://api.sandbox-m2.ll9k.p1.openshiftapps.com:6443/apis/user.openshift.io/v1/users/~"
+
 export TEST_DIR="src/test/java/com/company/automation" &&\
 mkdir -p ${TEST_DIR}/service &&\
 mkdir -p ${TEST_DIR}/controller &&\
