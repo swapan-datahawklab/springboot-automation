@@ -1,13 +1,12 @@
 package com.company.automation.controller;
 
-import com.company.automation.dto.RepoRequest;
 import com.company.automation.service.ArtifactoryService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -21,8 +20,8 @@ public class ArtifactoryController {
     }
 
     @GetMapping("/repos")
-    public ResponseEntity<String> getRepositories(@Valid @RequestBody RepoRequest repoRequest) {
-        String repoList = artifactoryService.getRepoList(repoRequest.getRepoName());
+    public ResponseEntity<String> getRepositories(@Valid @RequestParam String repoName) {
+        String repoList = artifactoryService.getRepoList(repoName);
         return ResponseEntity.ok(repoList);
     }
 }
