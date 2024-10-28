@@ -1,4 +1,10 @@
 chmod +x create_project_structure.sh &&\
+chmod +x create_test_structure.sh &&\
+chmod +x create_test.sh &&\
+chmod +x create_test.sh &&\
+
+bash ./create_test.sh &&\
+bash ./create_test_structure.sh &&\
 bash ./create_project_structure.sh
 
 oc login --token=sha256~${TOKEN} --server=https://api.sandbox-m2.ll9k.p1.openshiftapps.com:6443
