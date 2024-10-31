@@ -22,4 +22,10 @@ public class ArtifactoryController {
         String repoList = artifactoryService.getRepoList(repoName);
         return ResponseEntity.ok(repoList);
     }
+
+    @GetMapping("/taglist")
+    public ResponseEntity<String> getRepositories(@Valid @RequestParam String repoName, @Valid @RequestParam String tagName) {
+        String repoList = artifactoryService.getTagList(repoName,tagName);
+        return ResponseEntity.ok(repoList);
+    }
 }
